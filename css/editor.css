@@ -1,5 +1,6 @@
 input, textarea {outline: none}
 
+
 .editor ul {
     list-style: none;
     padding-left: 0px;
@@ -84,3 +85,4 @@ a.input-desc-info:hover {
     color: #5cb85c;
     text-decoration: none;
 }
+

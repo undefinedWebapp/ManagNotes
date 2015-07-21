@@ -3,107 +3,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>undefinedWebapp/ManagNotes</title>
+
 	<link type="text/css" href="css/jq22.css" rel="stylesheet" />
 	<link href="css/editor.css" rel="stylesheet">
-	<style type="text/css">
-	#page-wrap{
-		position: relative;
-		width: 100%;
-		padding: 43px 0 0 230px;
-		height: 100%;
-		margin: 0;
-	}
-	.page-side{
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 100;
-		width: 230px;
-		height: 100%;
-		background-color: #191818;
-	}
-	.note-class {
-		padding-top: 150px;
-		margin: 0;
-		list-style: none;
-	}
-	.class-item a:hover,.class-item-selected{
-		background: #313030;
-	}
-	.class-item a{
-		padding: 15px 20px;
-		font-size: 20px;
-		display: block;
-		color: #8C8B8B;
-		text-decoration: none;
-	}
-	.page-middle, .page-right{
-		margin-left: 15px;
-		background-color: #FFFFFF;
-	}
-	.page-middle{
-		float: left;
-		width: 450px;
-		height: 100%;
-	}
-	.page-right{
-		float: left;
-		width: 650px;
-		height: 100%;
-	}
-	.page-middle h1{
-		color: #8C8B8B;
-		font-size: 40px;
-		float: left;
-		padding: 30px 0 0 15px;
-	}
-	.note-names {
-		padding: 80px 0px;
-		margin: 0;
-		list-style: none;
-		background: #F6F6F6;
-		color: #000000;
-	}
-	.note-names li{
-		margin: 13px;
-		background-color: #EEEEEE;
-	}
-	.name-item a:hover,.name-item-selected{
-		border: 1px #67B8E4 solid;
-	}
-	.name-item a{
-		padding: 15px 20px;
-		font-size: 20px;
-		display: block;
-		text-decoration: none;
-		color: #191818;
-	}
-	.note{
-		color: #191818;
-	}
-	.note-name{
-		width: 100%;
-		margin: 40px 0 10px 20px;
-	}
-	.note-name h1{
-		font-size: 30px;
-	}
-	.note-cotent p{
-		font-size: 20px;
-		padding: 15px;
-	}
-
-	.add-class{
- 		/*background: url(./images/addclass.png) center center no-repeat;
-  		float: right;*/
-  		background: url(./images/addclass.png) center center no-repeat ;
-  		background-size: 25px 25px;
-  		display: block;
-  		height: 25px;
-  		width: 25px;
-  		margin: 20px 0 0 150px;
-	}
-	</style>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<!-- <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+	-->
+	<style type="text/css"></style>
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
@@ -117,67 +23,90 @@
 	<div id="page-wrap">
 		<div class="page-side">
 			<ul class="note-class">
-				<li class="class-item"><a href="#">Html+Css</a></li>
-				<li class="class-item"><a href="#">Html+Css</a></li>
-				<li class="class-item"><a href="#">Html+Css</a></li>
-				<li class="class-item"><a href="#">Html+Css</a></li>
-				<li class="class-item"><a href="#">Html+Css</a></li>
-				<li class="class-item"><a href="#">Html+Css</a></li>
+				<li class="class-item">
+					<a href="#">Html+Css</a>
+				</li>
+				<li class="class-item">
+					<a href="#">Html+Css</a>
+				</li>
+				<li class="class-item">
+					<a href="#">Html+Css</a>
+				</li>
 			</ul>
 			<a class="add-class" href="#" target="_blank"></a>
 		</div>
 		<div class="page-middle">
 			<h1>笔记</h1>
-			<a class="image add" href="views/note.html" target="_blank">add noteType</a>
+			<a class="image add" href="#" onclick="showAddNote()">add note</a>
 			<ul class="note-names">
 				<li class="name-item">
 					<a href="#">
-						<h2>分类名称</h2>
-						<p>文章预览</p>
+						<h2>我是笔记一</h2>
+						<p>详情ing...</p>
 					</a>
 				</li>
-				<li class="name-item">
-					<a href="#">
-						<h2>分类名称</h2>
-						<p>文章预览</p>
-					</a>
-				</li>
-				<li class="name-item">
-					<a href="#">
-						<h2>分类名称</h2>
-						<p>文章预览</p>
-					</a>
-				</li>
-				<li class="name-item">
-					<a href="#">
-						<h2>分类名称</h2>
-						<p>文章预览</p>
-					</a>
-				</li>
-				
+
 			</ul>
 		</div>
 		<div class="page-right">
-			<div class="note">
-				<div class="note-name">
-					<h1>CSS border边框属性教程(color style)</h2>
-				</div>
-				<div class="note-cotent">
-					<p>文章内容</p>
+			<div id="addNote"  class="container" style="display:none" >
+				<div class="row">
+					<div class="col-md-2"></div>
+
+					<div class="editor col-md-8">
+						<h2 >添加笔记</h2>
+						<ul style="display: inline-table; margin-left:0px">
+							<li title="加粗" class="glyphicon glyphicon-bold editor-menu" data-role="strong"></li>
+							<li title="斜体" class="glyphicon glyphicon-italic editor-menu" data-role="italic"></li>
+							<li class="editor-segmentation"></li>
+							<li title="链接" class="glyphicon glyphicon-link editor-menu" data-role="link"></li>
+							<li title="图片" class="glyphicon glyphicon-picture editor-menu" data-role="image"></li>
+							<li class="editor-segmentation"></li>
+							<li title="分割线" class="glyphicon glyphicon-header editor-menu" data-role="hr"></li>
+						</ul>
+
+						<ul style="float:right">
+							<li title="可见即可得" class="glyphicon glyphicon-adjust editor-menu-i" data-role="visible" value="1"></li>
+							<li class="editor-segmentation"></li>
+							<li title="预览" class="glyphicon glyphicon-eye-open editor-menu" data-role="preview"></li>
+						</ul>
+
+						<div class="row">
+							<div class="col-md-12 fix-top-10" style="border:2px #eee solid">
+								preview
+								<div id="preview" style=""></div>
+								<textarea id="text-input" oninput="this.editor.update()" class="workpace"
+		                       name="content">说点什么吧</textarea>
+								<br>
+								<br></div>
+							<button type="save" oninput="this.editor.update()">保存</button>
+
+						</div>
+					</div>
+
+					<div class="col-md-2"></div>
 				</div>
 			</div>
-		</div>
 
+		</div>
 
 	</div>
 	<!-- mainNotesEnd -->
 
-	<script type="text/javascript" src="scripts/framework/jquery-1.4.2.min.js"></script>
-	<script type="text/javascript" src="scripts/framework/infogrid.js"></script>
-	<!-- <script type="text/javascript" src="scripts/framework//markdown.js"></script>
-<script type="text/javascript" src="/scripts/framework/editor.js"></script>
-
 <script src="http://seajs.org/dist/sea.js" type="text/javascript"></script>
--->
+<script type="text/javascript">
+seajs.config({
+    base: "./",
+    alias: {      
+    	"jquery": "scripts/framework/jquery-1.4.2.min.js",
+    	"markdown-js": "scripts/framework/markdown"
+    }
+});
+
+seajs.use("scripts/framework/editor");
+
+</script>
+<script type="text/javascript" src="scripts/managNotes/noteDetail.js"></script>
+
 </body>
 </html>
