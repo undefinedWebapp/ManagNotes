@@ -4,7 +4,107 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>undefinedWebapp/ManagNotes</title>
 	<link type="text/css" href="css/jq22.css" rel="stylesheet" />
-	<link href="css/editor.css" rel="stylesheet"></head>
+	<link href="css/editor.css" rel="stylesheet">
+	<style type="text/css">
+	#page-wrap{
+		position: relative;
+		width: 100%;
+		padding: 43px 0 0 230px;
+		height: 100%;
+		margin: 0;
+	}
+	.page-side{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 100;
+		width: 230px;
+		height: 100%;
+		background-color: #191818;
+	}
+	.note-class {
+		padding-top: 150px;
+		margin: 0;
+		list-style: none;
+	}
+	.class-item a:hover,.class-item-selected{
+		background: #313030;
+	}
+	.class-item a{
+		padding: 15px 20px;
+		font-size: 20px;
+		display: block;
+		color: #8C8B8B;
+		text-decoration: none;
+	}
+	.page-middle, .page-right{
+		margin-left: 15px;
+		background-color: #FFFFFF;
+	}
+	.page-middle{
+		float: left;
+		width: 450px;
+		height: 100%;
+	}
+	.page-right{
+		float: left;
+		width: 650px;
+		height: 100%;
+	}
+	.page-middle h1{
+		color: #8C8B8B;
+		font-size: 40px;
+		float: left;
+		padding: 30px 0 0 15px;
+	}
+	.note-names {
+		padding: 80px 0px;
+		margin: 0;
+		list-style: none;
+		background: #F6F6F6;
+		color: #000000;
+	}
+	.note-names li{
+		margin: 13px;
+		background-color: #EEEEEE;
+	}
+	.name-item a:hover,.name-item-selected{
+		border: 1px #67B8E4 solid;
+	}
+	.name-item a{
+		padding: 15px 20px;
+		font-size: 20px;
+		display: block;
+		text-decoration: none;
+		color: #191818;
+	}
+	.note{
+		color: #191818;
+	}
+	.note-name{
+		width: 100%;
+		margin: 40px 0 10px 20px;
+	}
+	.note-name h1{
+		font-size: 30px;
+	}
+	.note-cotent p{
+		font-size: 20px;
+		padding: 15px;
+	}
+
+	.add-class{
+ 		/*background: url(./images/addclass.png) center center no-repeat;
+  		float: right;*/
+  		background: url(./images/addclass.png) center center no-repeat ;
+  		background-size: 25px 25px;
+  		display: block;
+  		height: 25px;
+  		width: 25px;
+  		margin: 20px 0 0 150px;
+	}
+	</style>
+</head>
 <body>
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
@@ -15,111 +115,59 @@
 	</div>
 	<!-- mainNotesBegin -->
 	<div id="page-wrap">
-		<a class="image add" href="views/note.html" target="_blank">add noteType</a>
-		<div class="info-col">
-			<h2>Html+Css</h2>
-			<a class="image superman" href="views/note.html" target="_blank">View Image</a>
-			<dl>
-				<dt>Super Power</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-				<dt>Costume</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-
-			</dl>
+		<div class="page-side">
+			<ul class="note-class">
+				<li class="class-item"><a href="#">Html+Css</a></li>
+				<li class="class-item"><a href="#">Html+Css</a></li>
+				<li class="class-item"><a href="#">Html+Css</a></li>
+				<li class="class-item"><a href="#">Html+Css</a></li>
+				<li class="class-item"><a href="#">Html+Css</a></li>
+				<li class="class-item"><a href="#">Html+Css</a></li>
+			</ul>
+			<a class="add-class" href="#" target="_blank"></a>
+		</div>
+		<div class="page-middle">
+			<h1>笔记</h1>
+			<a class="image add" href="views/note.html" target="_blank">add noteType</a>
+			<ul class="note-names">
+				<li class="name-item">
+					<a href="#">
+						<h2>分类名称</h2>
+						<p>文章预览</p>
+					</a>
+				</li>
+				<li class="name-item">
+					<a href="#">
+						<h2>分类名称</h2>
+						<p>文章预览</p>
+					</a>
+				</li>
+				<li class="name-item">
+					<a href="#">
+						<h2>分类名称</h2>
+						<p>文章预览</p>
+					</a>
+				</li>
+				<li class="name-item">
+					<a href="#">
+						<h2>分类名称</h2>
+						<p>文章预览</p>
+					</a>
+				</li>
+				
+			</ul>
+		</div>
+		<div class="page-right">
+			<div class="note">
+				<div class="note-name">
+					<h1>CSS border边框属性教程(color style)</h2>
+				</div>
+				<div class="note-cotent">
+					<p>文章内容</p>
+				</div>
+			</div>
 		</div>
 
-		<div class="info-col">
-			<h2>JavaScript</h2>
-			<a class="image batman" href="views/noteDetail.html" target="_blank">View Image</a>
-			<dl>
-				<dt>Super Power</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-				<dt>Costume</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-				<dt>Morality</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-			</dl>
-		</div>
-
-		<div class="info-col">
-
-			<h2>Python</h2>
-			<a class="image aquaman" href="" target="_blank">View Image</a>
-			<dl>
-				<dt id="starter">Super Power</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eaommodo consequat.
-				</dd>
-
-				<dt>Sidekicks</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-				<dt>Vehicles</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-				<dt>Weaknesses</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-			</dl>
-		</div>
-
-		<div class="info-col">
-
-			<h2>Java</h2>
-			<a class="image spiderman" href="" target="_blank">View Image</a>
-			<dl>
-				<dt>Super Power</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-				<dt>Costume</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-				<dt>Morality</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ecommodo consequat.
-				</dd>
-				<dt>Sidekicks</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-				<dt>Vehicles</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-				<dt>Weaknesses</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-			</dl>
-		</div>
-
-		<div class="info-col">
-
-			<h2>NodeJs</h2>
-			<a class="image ironman" href="" target="_blank">View Image</a>
-			<dl>
-				<dt>Super Power</dt>
-				<dd>
-					Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex eacommodo consequat.
-				</dd>
-
-			</dl>
-		</div>
 
 	</div>
 	<!-- mainNotesEnd -->
