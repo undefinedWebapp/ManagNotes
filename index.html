@@ -119,7 +119,8 @@ $("#add-btn").click(function(event){
 
 $("#class-editor input").bind("keypress",function(event){
 	if(event.keyCode == "13"){
-		$(".note-class li:last-child").append('<li class="class-item"><a href="#">'+$("#class-editor input").val()+'</a></li>');
+		$(".note-class").append('<li class="class-item"><a href="#">'+$("#class-editor input").val()+'</a></li>');
+		$("#class-editor input").val("");
 		$("#class-editor").hide();
 		//alert('your input:'+ $("#class-editor input").val());
 	}
