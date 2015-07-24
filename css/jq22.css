@@ -5,6 +5,7 @@ body{font:14px Georgia, serif}
 
 .image{height:100px;text-indent:-9999px;display:block;border-right:1px solid white}
 .add{background:url(../images/add.png) center center no-repeat; float: right;}
+.close{background:url(../images/delete.png) center center no-repeat; float: right;}
 
 
 .navbar{overflow:visible;margin-bottom:20px;color:#ffffff;*position:relative;*z-index:2;}

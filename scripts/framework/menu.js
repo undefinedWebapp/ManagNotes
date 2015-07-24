@@ -14,7 +14,7 @@ define(function(require, exports) {
     // strong font
     function Strong(editor){
         $("li[data-role=strong]").click(function(){
-            var o = document.getElementById('text-input')
+            var o = document.getElementById('notes')
             o.focus();
             if(typeof document.selection !="undefined"){
                 console.log(document.selection.createRange().text);
@@ -37,7 +37,7 @@ define(function(require, exports) {
     // italic font
     function Italic(editor){
          $("li[data-role=italic]").click(function(){
-            var o = document.getElementById('text-input')
+            var o = document.getElementById('notes')
             o.focus();
             if(typeof document.selection !="undefined"){
                 console.log(document.selection.createRange().text);
@@ -60,7 +60,7 @@ define(function(require, exports) {
     // super link
     function Link(editor){
         $("li[data-role=link]").click(function(){
-            var o = document.getElementById('text-input')
+            var o = document.getElementById('notes')
             o.focus();
             if(typeof document.selection !="undefined"){
                 console.log(document.selection.createRange().text);
@@ -83,7 +83,7 @@ define(function(require, exports) {
     // add image
     function Image(editor){
         $("li[data-role=image]").click(function(){
-            var o = document.getElementById('text-input')
+            var o = document.getElementById('notes')
             o.focus();
             if(typeof document.selection !="undefined"){
                 console.log(document.selection.createRange().text);
@@ -107,7 +107,7 @@ define(function(require, exports) {
     // add 分割线
     function Hr(editor){
         $("li[data-role=hr]").click(function(){
-            var o = document.getElementById('text-input')
+            var o = document.getElementById('notes')
             o.focus();
             if(typeof document.selection !="undefined"){
                 console.log(document.selection.createRange().text);

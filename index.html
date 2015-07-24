@@ -7,8 +7,6 @@
 	<link type="text/css" href="css/jq22.css" rel="stylesheet" />
 	<link href="css/editor.css" rel="stylesheet">
 	<link href="css/bootstrap.css" rel="stylesheet">
-	<!-- <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-	-->
 	<style type="text/css">
 
 	</style>
@@ -26,13 +24,7 @@
 		<div class="page-side">
 			<ul class="note-class">
 				<li class="class-item">
-					<a href="#">Html+Css</a>
-				</li>
-				<li class="class-item">
-					<a href="#">Html+Css</a>
-				</li>
-				<li class="class-item">
-					<a href="#">Html+Css</a>
+					<a href="#" onclick="showNoteList('JavaScript')">DefaultNoteData</a>
 				</li>
 			</ul>
 			<div id="class-editor">
@@ -42,24 +34,22 @@
 		</div>
 		<div class="page-middle">
 			<h1>笔记</h1>
-			<a class="image add" href="#" onclick="showAddNote()">add note</a>
-			<ul class="note-names">
-				<li class="name-item">
-					<a href="#">
-						<h2>我是笔记一</h2>
-						<p>详情ing...</p>
-					</a>
-				</li>
-
+			<a class="image add" href="#" onclick="showAddNote('add')">add note</a>
+			<ul class="note-names" id="noteList">
+				
 			</ul>
 		</div>
 		<div class="page-right">
-			<div id="addNote"  class="container" style="display:none" >
+			<!--新增笔记-->
+			<div id="addNote"  class="container" style="display:none">
 				<div class="row">
-					<div class="col-md-2"></div>
-
+					<div class="editor col-md-2"></div>
+					<!--MarkDown输入区-->
 					<div class="editor col-md-8">
-						<h2 >添加笔记</h2>
+						<h2>添加笔记</h2>
+						<a class="image close" href="#" onclick="closeNote('add')">closeNote</a>
+						<p><input id="noteTitle" style="" name="note[title]" placeholder="Title" required="required" size="30" tabindex="1" type="text" oninput="titleFocus()" /></p>
+
 						<ul style="display: inline-table; margin-left:0px">
 							<li title="加粗" class="glyphicon glyphicon-bold editor-menu" data-role="strong"></li>
 							<li title="斜体" class="glyphicon glyphicon-italic editor-menu" data-role="italic"></li>
@@ -78,21 +68,26 @@
 
 						<div class="row">
 							<div class="col-md-12 fix-top-10" style="border:2px #eee solid">
-								preview
+								<b>preview</b>
 								<div id="preview" style=""></div>
-								<textarea id="text-input" oninput="this.editor.update()" class="workpace"
-		                       name="content">说点什么吧</textarea>
+								<textarea id="notes" oninput="this.editor.update()" class="workpace" name="content" oninput="detailFocus()"  onfocus="if(value=='说点什么吧') {value=''}" onblur="if(value=='') {value='说点什么吧'}">说点什么吧</textarea>
 								<br>
 								<br></div>
-							<button type="save" oninput="this.editor.update()">保存</button>
-
+							<button type="submit" id="saveNote" onclick="saveNote()">保存</button>
 						</div>
 					</div>
 
 					<div class="col-md-2"></div>
 				</div>
 			</div>
-
+			<!--查看笔记-->
+			<div id="detailPanel"  class="container">
+				<!-- <h1>内容</h1> -->
+				
+				<div class="editor col-md-4" id="noteContents" style="margin-left:170px">
+						
+					</div>
+			</div>
 		</div>
 
 	</div>
@@ -124,12 +119,15 @@ $("#class-editor input").bind("keypress",function(event){
 		$("#class-editor").hide();
 		//alert('your input:'+ $("#class-editor input").val());
 	}
-})
+});
 $("body").click(function(event){
 	$("#class-editor").hide();
-})
+});
 </script>
+<script type="text/javascript" src="scripts/framework/store.js"></script>
+<script type="text/javascript" src="scripts/managNotes/main.js"></script>
 <script type="text/javascript" src="scripts/managNotes/noteDetail.js"></script>
+<script type="text/javascript" src="scripts/managNotes/noteType.js"></script>
 
 </body>
 </html>
