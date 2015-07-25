@@ -15,100 +15,112 @@ body{font:14px Georgia, serif}
 .navbar .brand{float:left;display:block;padding:10px 20px 10px;margin-left:-20px;font-size:20px;font-weight:200;color:#ffffff;text-shadow:0 1px 0 #ce4213;}.navbar .brand:hover{text-decoration:none;}
 
 #page-wrap{
-		position: relative;
-		width: 100%;
-		padding: 43px 0 0 230px;
-		height: 100%;
-		margin: 0;
-	}
-	.page-side{
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 100;
-		width: 230px;
-		height: 100%;
-		background-color: #191818;
-	}
-	.note-class {
-		padding-top: 150px;
-		margin: 0;
-		list-style: none;
-	}
-	.class-item a:hover,.class-item-selected{
-		background: #313030;
-	}
-	.class-item a{
-		padding: 15px 20px;
-		font-size: 20px;
-		display: block;
-		color: #8C8B8B;
-		text-decoration: none;
-	}
-	.page-middle, .page-right{
-		margin-left: 10px;
-		
-	}
-	.page-middle{
-		float: left;
-		width: 245px;
-		
-	}
-	.page-right{
-		float: right;
-		width: 650px;
-		position: absolute;
-		margin-left: 90px;
-	}
-	.page-middle h1{
-		color: #8C8B8B;
-		font-size: 40px;
-		float: left;
-		padding: 30px 0 0 15px;
-	}
-	.note-names {
-		padding: 80px 0px;
-		margin: 0;
-		list-style: none;
-		background: #F6F6F6;
-		color: #000000;
-	}
-	.note-names li{
-		margin: 13px;
-		background-color: #EEEEEE;
-	}
-	.name-item a:hover,.name-item-selected{
-		border: 1px #67B8E4 solid;
-	}
-	.name-item a{
-		padding: 15px 20px;
-		font-size: 20px;
-		display: block;
-		text-decoration: none;
-		color: #191818;
-	}
-	.note{
-		color: #191818;
-	}
-	.note-name{
-		width: 100%;
-		margin: 40px 0 10px 20px;
-	}
-	.note-name h1{
-		font-size: 30px;
-	}
-	.note-cotent p{
-		font-size: 20px;
-		padding: 15px;
-	}
-
-	.add-class{
- 		/*background: url(./images/addclass.png) center center no-repeat;
-  		float: right;*/
-  		/*background: url(./images/addclass.png) center center no-repeat ;*/
-  		background-size: 25px 25px;
-  		display: block;
-  		height: 25px;
-  		width: 25px;
-  		margin: 20px 0 0 150px;
-	}
+	position: relative;
+	width: 100%;
+	padding: 43px 0 0 230px;
+	height: 100%;
+	margin: 0;
+}
+.page-side{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 230px;
+	height: 100%;
+	background-color: #191818;
+}
+.note-class {
+	padding-top: 150px;
+	margin: 0;
+	list-style: none;
+}
+.class-item a:hover,.class-item-selected{
+	background: #313030;
+}
+.class-item a{
+	padding: 15px 20px;
+	font-size: 20px;
+	display: block;
+	color: #8C8B8B;
+	text-decoration: none;
+}
+.page-middle, .page-right{
+	margin-left: 10px;
+	
+}
+.page-middle{
+	float: left;
+	width: 245px;
+	
+}
+.page-right{
+	float: right;
+	width: 650px;
+	position: absolute;
+	margin-left: 90px;
+}
+.page-middle h1{
+	color: #8C8B8B;
+	font-size: 40px;
+	float: left;
+	padding: 30px 0 0 15px;
+}
+.note-names {
+	padding: 80px 0px;
+	margin: 0;
+	list-style: none;
+	background: #F6F6F6;
+	color: #000000;
+}
+.note-names li{
+	margin: 13px;
+	background-color: #EEEEEE;
+}
+.name-item a:hover,.name-item-selected{
+	border: 1px #67B8E4 solid;
+}
+.name-item a{
+	padding: 15px 20px;
+	font-size: 20px;
+	display: block;
+	text-decoration: none;
+	color: #191818;
+}
+.note{
+	color: #191818;
+}
+.note-name{
+	width: 100%;
+	margin: 40px 0 10px 20px;
+}
+.note-name h1{
+	font-size: 30px;
+}
+.note-cotent p{
+	font-size: 20px;
+	padding: 15px;
+}
+.add-class{
+	background: url(../images/addclass.png) center center no-repeat ;
+	background-size: 25px 25px;
+	display: block;
+	height: 25px;
+	width: 25px;
+	margin: 20px 0 0 150px;
+	border: none;
+}
+#class-editor{
+	margin: 10px 20px ;
+	display: none;
+}
+#class-editor input{
+	background-color: #191818;
+	border-bottom: #8C8B8B solid 2px;
+	padding: 2px 5px;
+	width: 150px;
+	border-radius: 2px;
+	color: #8C8B8B;
+	border-width: 0 0 2px 0;
+	font-size: 20px;
+}
