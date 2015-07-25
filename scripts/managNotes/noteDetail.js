@@ -20,7 +20,7 @@ function showNoteList(noteType) {
 /*临时function,后续修改为通过传参调用showDetail()*/
 function showDetailNote(noteTitle) {
   var data = getNoteListByType();
-  $("#noteContents").append('<a  href=\"#\"  onclick="showAddNote()">点我修改</a><h2>' + data.notes[0].noteTitle + '</h2>' +
+  $("#noteContents").append('<a  href=\"#\" ">点我修改</a><h2>' + data.notes[0].noteTitle + '</h2>' +
     '<p>' + data.notes[0].noteContents + '</p></li>');
 }
 /**
@@ -45,6 +45,28 @@ function getNoteListByType(noteType) {
     }]
   };
 }
+
+/**
+*添加笔记类别
+* @method addNoteClass
+* @for 所属类名
+* @param 
+* @return 
+* author lwz
+* date 2015/07/25
+*/
+function addNoteClass(noteType){
+  var noteType = store.get("noteType");
+  if(noteType != ""){
+    alert("此类别已存在~~")
+  }else{
+    var noteType = {
+      noteType:noteType,
+      notes:[]
+    }
+  }
+}
+
 /******/
 
 /***笔记详情begin***/
@@ -57,13 +79,19 @@ function getNoteListByType(noteType) {
  * author zyHu
  * date 2015/07/22
  */
-function showAddNote(type) {
-  console.log(type);
+function showAddNote(optionType,noteTitle,noteContents) {
+  console.log(optionType);
   //打开新增笔记输入区域并默认将焦点落到笔记标题上,且禁用保存按钮
   document.getElementById('addNote').style.display = 'block';
-  document.getElementById('noteTitle').focus();
-  document.getElementById("saveNote").setAttribute("disabled", true);
-
+  if(optionType == 'add'){  //新增笔记  
+    document.getElementById('noteTitle').focus();
+    document.getElementById("saveNoteBtn").setAttribute("disabled", true);
+  }else{ //修改笔记
+    document.getElementById('noteTitle').value = noteTitle;
+    document.getElementById('notes').value = noteContents;
+    document.getElementById('noteTitle').focus();
+    editor.update();
+  }
 }
 
 /**
@@ -79,9 +107,9 @@ function titleFocus() {
 
   //如当前输入为空则禁止保存按钮,否则开启
   if ('' === document.getElementById('noteTitle').value) {
-    document.getElementById("saveNote").setAttribute("disabled", true); //  document.all("submit").disabled=true;
+    document.getElementById("saveNoteBtn").setAttribute("disabled", true); //  document.all("submit").disabled=true;
   } else {
-    document.getElementById("saveNote").removeAttribute('disabled');
+    document.getElementById("saveNoteBtn").removeAttribute('disabled');
   }
 
 }
@@ -98,9 +126,9 @@ function titleFocus() {
 function detailFocus() {
   //如当前输入为空则禁止保存按钮,否则开启
   if ('' === document.getElementById('notes').value) {
-    document.getElementById("saveNote").setAttribute("disabled", true); //  document.all("submit").disabled=true;
+    document.getElementById("saveNoteBtn").setAttribute("disabled", true); //  document.all("submit").disabled=true;
   } else {
-    document.getElementById("saveNote").removeAttribute('disabled');
+    document.getElementById("saveNoteBtn").removeAttribute('disabled');
   }
 }
 
@@ -113,22 +141,22 @@ function detailFocus() {
  * author zyHu
  * date 2015/07/23
  */
-function saveNote() {
+function saveNote(noteType,optionType) {
   //debugger
   //保存前再次跟踪title、detail字段是否为空
   if ('' === document.getElementById('noteTitle').value || '' === document.getElementById('notes').value) {
-    document.getElementById("saveNote").setAttribute("disabled", true);
+    document.getElementById("saveNoteBtn").setAttribute("disabled", true);
   } else {
-    document.getElementById("saveNote").removeAttribute('disabled');
+    document.getElementById("saveNoteBtn").removeAttribute('disabled');
     var detailNote = {
       createTime: getCurrentTime(),
       updateTime: getCurrentTime(), //新增时最后修改时间为新建时间
       author: 'mozzie',
-      noteType: '',
+      noteType: noteType,
       noteTitle: document.getElementById('noteTitle').value,
-      noteContents: store.get('notes')
+      noteContents: document.getElementById('notes').value
     }; //新增的笔记对象
-    store.set('newNotes', detailNote);
+    store.set(noteType+" "+noteTitle, detailNote);  //存储笔记，key为noteType和noteTile拼接而成
 
     document.getElementById('addNote').style.display = 'none'; //新增完后隐藏新增区域
     //像笔记列表追加新增的笔记

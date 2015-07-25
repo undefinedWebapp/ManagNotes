@@ -9,10 +9,13 @@ define(function(require, exports) {
         input.style.height = input.scrollHeight + input.scrollTop + 'px';
         input.style.background = '#f6f6f6';
         input.style.color = '#333';
-        store.set('notes',input.value);
+        //store.set('notes',input.value);
         preview.innerHTML = markdown.toHTML(input.value);
       }
     };
+    this.empty = function(){  //保存完笔记后清空编辑区
+       //todo
+    }
     input.editor = this;
     this.update();
   }
