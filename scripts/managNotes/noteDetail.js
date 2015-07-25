@@ -147,13 +147,8 @@ function saveNote() {
  * date 2015/07/24
  */
 function showDetail() {
-  //console.log(store.get('newNotes'));
-  //debugger
-  //将内容赋给显示区域
-  //"<a onclick=\"PanToCarCenter(" + item.lng + "," + item.lat + ")\" href=\"#\">"
-  document.getElementById('detailPanel').style.dispaly = 'block';
-  console.log(document.getElementById('detailPanel').style.dispaly);
-  $("#noteContents").append('<a  href=\"#\"  onclick="showAddNote()">点我修改</a><h2>' + store.get('newNotes').noteTitle + '</h2>' +
+  
+  $("#noteContents").append('<a  href=\"#\"  onclick="showAddNote(\'update\')">点我修改</a><h2>' + store.get('newNotes').noteTitle + '</h2>' +
     '<p>' + store.get('newNotes').noteContents + '</p></li>');
 }
 
