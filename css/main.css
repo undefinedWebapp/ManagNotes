@@ -53,10 +53,10 @@ body{font:14px Georgia, serif}
 	
 }
 .page-right{
-	float: right;
+	/*float: right;
 	width: 650px;
 	position: absolute;
-	margin-left: 90px;
+	margin-left: 90px;*/
 }
 .page-middle h1{
 	color: #8C8B8B;
@@ -130,4 +130,12 @@ body{font:14px Georgia, serif}
 	width: 32px;
 	border: none;
 	margin: 60px 15px 0 0 ;
+	position: absolute;
+	margin-left: 200px;
+	top:0px;
+}
+
+.showTitle{
+	width: 130px;
+    height: 20px;padding-bottom:30px
 }
