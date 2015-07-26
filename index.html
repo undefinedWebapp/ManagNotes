@@ -86,11 +86,11 @@
 
 </div>
 <!-- mainNotesEnd -->
-<script type="text/javascript" src="scripts/framework/store.js"></script>
-<script type="text/javascript" src="scripts/managNotes/main.js"></script>
-<script type="text/javascript" src="scripts/managNotes/noteDetail.js"></script>
 <script src="http://seajs.org/dist/sea.js" type="text/javascript"></script>
 <script src="scripts/framework/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="scripts/framework/store.js"></script>
+<script type="text/javascript" src="scripts/managNotes/noteDetail.js"></script>
+
 <script type="text/javascript">
 	seajs.config({
 	    base: "./",
@@ -181,13 +181,13 @@
 			optionType = "add";
 			showAddNote(optionType);
 		}
-	})
+	});
 
 	$("#saveNoteBtn").click(function(event){
 		var noteType = getNoteType();
 		var $li = $(".note-selected");
 		saveNote(noteType,optionType,$li);//传入当前选中笔记类别，以及操作类型
-	})
+	});
 </script>
 
 

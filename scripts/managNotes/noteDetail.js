@@ -136,7 +136,7 @@ function addNoteType(noteType) {
   var noteTypeObj = {
       noteType: noteType,
       notes: []
-  }
+  };
   noteTypeArray.push(noteTypeObj);
   store.set("noteType",noteTypeArray);
   initNoteTypeMap();
