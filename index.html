@@ -20,11 +20,7 @@
 	<!-- mainNotesBegin -->
 	<div id="page-wrap">
 		<div class="page-side">
-			<ul class="note-class">
-				<li class="class-item">
-					<a href="#" onclick="showNoteList('JavaScript')">DefaultNoteData</a>
-				</li>
-			</ul>
+			<ul class="note-class"></ul>
 			<div id="class-editor">
 				<input type="text"/>
 			</div>
@@ -43,9 +39,9 @@
 					<!--MarkDown输入区-->
 					<div class="editor col-md-8">
 						<h2>
-							<div id="showTitle"></div>
+							<button type="image" class="closeBtn" onclick="closeNote('add')"></button> 
+							<div id="showTitle"></div>	
 						</h2>
-						<a class="image close" href="#" onclick="closeNote('add')">closeNote</a>
 						<p>
 							<input id="noteTitle" style="" name="note[title]" placeholder="Title" required="required" size="30" tabindex="1" type="text" oninput="titleFocus()" />
 						</p>
@@ -90,7 +86,9 @@
 
 </div>
 <!-- mainNotesEnd -->
-
+<script type="text/javascript" src="scripts/framework/store.js"></script>
+<script type="text/javascript" src="scripts/managNotes/main.js"></script>
+<script type="text/javascript" src="scripts/managNotes/noteDetail.js"></script>
 <script src="http://seajs.org/dist/sea.js" type="text/javascript"></script>
 <script src="scripts/framework/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -104,6 +102,32 @@
 
 	seajs.use("scripts/framework/editor");
 
+	showNoteTypes();
+
+	$(".note-class").on('click','a',function(event){
+		showNoteList($(this).html());
+		$(".type-selected").removeClass('type-selected');
+		$(this).addClass("type-selected");
+	}); 
+	//点击缩略图，显示笔记详情
+	$(".note-names").on('click','.name-item',function(event){
+		$(".note-selected").removeClass('note-selected');
+		$(this).addClass("note-selected");
+		if(document.getElementById('addNote').style.display == "block"){ //此时已打开了编辑窗口
+			var a=confirm("确定要退出此次编辑？");
+ 			if(a==true)
+ 			{
+ 				closeNote();
+ 				$("#noteContents").empty();
+				showDetail($(this).find("h2").html(),$(this).find("p").html());
+ 			}
+		}else{
+			$("#noteContents").empty();
+			showDetail($(this).find("h2").html(),$(this).find("p").html());
+		}
+		
+	}); 
+
 	$("#addClassBtn").click(function(event){
 		event.stopPropagation();
 		$("#class-editor").show();
@@ -112,9 +136,12 @@
 
 	$("#class-editor input").bind("keypress",function(event){
 		if(event.keyCode == "13"){
-			$(".note-class").append('<li class="class-item"><a href="#">'+$("#class-editor input").val()+'</a></li>');
+			var noteType = $("#class-editor input").val();
+			$(".note-class").append('<li class="class-item"><a href="#">'+noteType+'</a></li>');
 			$("#class-editor input").val("");
 			$("#class-editor").hide();
+			if(addNoteType(noteType)){
+			}
 			//alert('your input:'+ $("#class-editor input").val());
 		}
 	});
@@ -124,27 +151,45 @@
 	});
 
 	var optionType = "";
-	$("#noteContents").on('click','a',function(){  //绑定事件
+	function getNoteType(){
+		var noteType = $(".type-selected").html();
+		if(noteType == undefined){//当前没有选中笔记类别
+			noteType = "defaultType";
+		}
+		return noteType;
+	}
+	$("#noteContents").on('click','#editBtn',function(){  //绑定事件
 		//alert("test");
 		var noteTitle = $("#noteContents h2").html();
 		var noteContents = $("#noteContents p").html();
+		$("#noteContents").empty();
 		optionType = "update";
-		showAddNote(optionType, noteTitle, noteContents);
-		$("#noteContents").empty(); 
+		showAddNote(optionType, noteTitle, getNoteType());
 	});
 
 	$("#addNoteBtn").click(function(event){
-		optionType = "add";
-		showAddNote(optionType);
+		$("#noteContents").empty();
+		if(document.getElementById('addNote').style.display == "block"){ //此时已打开了编辑窗口
+			var a=confirm("确定要退出此次编辑？");
+ 			if(a==true)
+ 			{
+ 				closeNote();
+ 				optionType = "add";
+				showAddNote(optionType);
+ 			}
+		}else{
+			optionType = "add";
+			showAddNote(optionType);
+		}
 	})
 
 	$("#saveNoteBtn").click(function(event){
-		saveNote("",optionType);//传入当前选中笔记类别，以及操作类型
+		var noteType = getNoteType();
+		var $li = $(".note-selected");
+		saveNote(noteType,optionType,$li);//传入当前选中笔记类别，以及操作类型
 	})
 </script>
-<script type="text/javascript" src="scripts/framework/store.js"></script>
-<script type="text/javascript" src="scripts/managNotes/main.js"></script>
-<script type="text/javascript" src="scripts/managNotes/noteDetail.js"></script>
+
 
 </body>
 </html>

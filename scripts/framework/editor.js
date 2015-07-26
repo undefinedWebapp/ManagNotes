@@ -13,9 +13,6 @@ define(function(require, exports) {
         preview.innerHTML = markdown.toHTML(input.value);
       }
     };
-    this.empty = function(){  //保存完笔记后清空编辑区
-       //todo
-    }
     input.editor = this;
     this.update();
   }
